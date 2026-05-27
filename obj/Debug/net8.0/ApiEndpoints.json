@@ -194,6 +194,22 @@
   },
   {
     "ContainingType": "APIWizPedroKarut.Controllers.PedidoController",
+    "Method": "Cancelar",
+    "RelativePath": "api/Pedido/cancelarPedido/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIWizPedroKarut.Controllers.PedidoController",
     "Method": "GetPorStatus",
     "RelativePath": "api/Pedido/status/{status}",
     "HttpMethod": "GET",

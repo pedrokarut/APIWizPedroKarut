@@ -86,6 +86,29 @@ namespace APIWizPedroKarut.Controllers
 
         }
 
+        [HttpPut("cancelarPedido/{id}")]
+        public async Task<IActionResult> Cancelar(string id)
+        {
+            var pedido = await _context.Pedidos.FindAsync(Guid.Parse(id));
+            if (pedido == null)
+            {
+                _logger.LogInformation("Pedido com ID {PedidoId} não encontrado para atualização.", id);
+                return NotFound("Pedido não encontrado");
+            }
+            if (pedido.Status == "Pago")
+            {
+                _logger.LogInformation("Tentativa de cancelar um pedido pago com ID {PedidoId}.", id);
+                return BadRequest("Não é possível alterar um pedido cancelado");
+            }
+            pedido.Status = "Cancelado";
+            _context.Pedidos.Update(pedido);
+            await _context.SaveChangesAsync();
+
+            _logger.LogInformation("Pedido com ID {PedidoId} foi cancelado.", id);
+            return Ok("Pedido cancelado: " + pedido.Id);
+
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
