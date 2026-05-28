@@ -1,5 +1,7 @@
 ﻿using APIWizPedroKarut.Data;
+using APIWizPedroKarut.DTOs;
 using APIWizPedroKarut.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,17 +13,20 @@ namespace APIWizPedroKarut.Controllers
     {
         private readonly ILogger<ItemPedidoController> _logger;
         private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ItemPedidoController(ILogger<ItemPedidoController> logger, AppDbContext context)
+        public ItemPedidoController(ILogger<ItemPedidoController> logger, AppDbContext context, IMapper mapper)
         {
             _logger = logger;
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var itens = await _context.ItensPedido.ToListAsync();
+            var itensDTO = _mapper.Map<List<ItemPedidoDTO>>(itens);
             return Ok(itens);
         }
 
@@ -29,7 +34,8 @@ namespace APIWizPedroKarut.Controllers
         public async Task<IActionResult> Get(string id)
         {
             var item = await _context.ItensPedido.FindAsync(Guid.Parse(id));
-            if (item == null)
+            var itemDTO = _mapper.Map<ItemPedidoDTO>(item);
+            if (itemDTO == null)
             {
                 return NotFound();
             }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("APIWizPedroKarut")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af404e7ae946cd6dfa4f8b5b05fec192b8f3faad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6579e6cef1093d300b26287b49e403a0b5cd05b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("APIWizPedroKarut")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APIWizPedroKarut")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

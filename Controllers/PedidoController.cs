@@ -1,5 +1,7 @@
 ﻿using APIWizPedroKarut.Data;
+using APIWizPedroKarut.DTOs;
 using APIWizPedroKarut.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +14,13 @@ namespace APIWizPedroKarut.Controllers
     {
         private readonly ILogger<PedidoController> _logger;
         private AppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public PedidoController(ILogger<PedidoController> logger, AppDbContext context)
+        public PedidoController(ILogger<PedidoController> logger, AppDbContext context, IMapper mapper)
         {
             _logger = logger;
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -30,8 +34,11 @@ namespace APIWizPedroKarut.Controllers
         public async Task<IActionResult> GetPorStatus(string status)
         {
             var pedidos = await _context.Pedidos.Where(p => p.Status == status).ToListAsync();
-            if (pedidos == null)
+            var pedidosDTO = _mapper.Map<List<PedidoDTO>>(pedidos);
+
+            if (pedidosDTO == null || pedidosDTO.Count == 0)
                 return NotFound("Nenhum pedido encontrado com esse status");
+
             return Ok(pedidos);
         }
 
@@ -39,13 +46,15 @@ namespace APIWizPedroKarut.Controllers
         public async Task<IActionResult> Get(string id)
         {
             var pedido = await _context.Pedidos.FindAsync(Guid.Parse(id));
-            if (pedido == null)
+            var pedidoDTO = _mapper.Map<PedidoDTO>(pedido);
+            if (pedidoDTO == null)
             {
                 _logger.LogInformation("Pedido com ID {PedidoId} não encontrado.", id);
                 return NotFound();
             }
             var itens = await _context.ItensPedido.Where(i => i.PedidoId == id).ToListAsync();
-            return Ok(new { Pedido = pedido, Itens = itens });
+            var itensDTO = _mapper.Map<List<ItemPedidoDTO>>(itens);
+            return Ok(new { Pedido = pedidoDTO, Itens = itensDTO });
         }
 
         [HttpPost]

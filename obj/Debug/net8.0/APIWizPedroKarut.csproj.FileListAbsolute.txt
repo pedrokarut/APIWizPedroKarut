@@ -138,3 +138,10 @@ C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\tr\Microsof
 C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\pe\Teste\APIWizPedroKarut\APIWizPedroKarut\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
